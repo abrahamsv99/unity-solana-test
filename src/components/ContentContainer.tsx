@@ -28,12 +28,6 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
             href="/"
           />
           </li>
-          <li>
-          <NavElement
-            label="Basics"
-            href="/basics"
-          />
-          </li>
         </ul>
       </div>
     </div>
