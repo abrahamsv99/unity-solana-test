@@ -11,6 +11,18 @@ import pkg from '../../../package.json';
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function App() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "Build/solanasdk2.loader.js",
+    dataUrl: "Build/solanasdk2.data",
+    frameworkUrl: "Build/solanasdk2.framework.js",
+    codeUrl: "Build/solanasdk2.wasm",
+  });
+
+  return <Unity unityProvider={unityProvider} />;
+}
 
 export const HomeView: FC = ({ }) => {
   const wallet = useWallet();
@@ -35,6 +47,11 @@ export const HomeView: FC = ({ }) => {
         </h1>
         <div className=''>
           {`${wallet?.publicKey}`}
+          import React from "react";
+
+         {App()} 
+
+
         </div>
       </div>
     </div>
